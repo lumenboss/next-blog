@@ -1,3 +1,5 @@
+import { ClerkProvider } from '@clerk/nextjs';
+
 import Header from "@/components/Header";
 import ThemeProvider from "@/components/theme-provider";
 import type { Metadata } from "next";
@@ -27,6 +29,7 @@ export default function RootLayout({
 }>) {
 
   return (
+    <ClerkProvider>
     <html lang="en" suppressHydrationWarning>
       <body>
       <ThemeProvider
@@ -41,5 +44,6 @@ export default function RootLayout({
         
       </body>
     </html>
+  </ClerkProvider >
   );
 }

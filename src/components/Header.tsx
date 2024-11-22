@@ -1,3 +1,9 @@
+import {
+    SignInButton,
+    SignedIn,
+    SignedOut,
+    UserButton
+} from '@clerk/nextjs'
 import Link from 'next/link'
 import { FaBars, FaSearch } from 'react-icons/fa'
 import { ModeToggle } from './mode-toggle'
@@ -19,7 +25,12 @@ const Header = () => {
         </ul>
         <div className='h-10 flex items-center gap-3 max-md:text-sm'>
             <ModeToggle />
-            <Link href="" className='p-3 hover:text-blue-400 text-blue-600 max-x-tn:hidden'>Sign up</Link>
+            <SignedIn>
+                <UserButton></UserButton>
+            </SignedIn>
+            <SignedOut>
+                <SignInButton></SignInButton>
+            </SignedOut>
             <FaBars className='w-6 h-4 text-blue-600 hover:cursor-pointer sm:hidden' />
         </div>
         
